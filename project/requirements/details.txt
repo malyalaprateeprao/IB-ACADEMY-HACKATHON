@@ -1,0 +1,42 @@
+#create a python virtual environment in project folder
+python3 -m venv ./venv
+
+
+#Activate virtual environment for your project 
+source filename/bin/activate
+ex:
+source venv/bin/activate
+
+#deactivate your virtual environment
+deactivate
+
+
+#to run flask server in my local system
+#here hello_world.py is python file on which the flask has to run
+(venv) rao@rao-Rev-1-0:~/Desktop/project/hospital-booking-system$ export FLASK_APP=hello_world.py
+(venv) rao@rao-Rev-1-0:~/Desktop/project/hospital-booking-system$ export FLASK_DEBUG=1
+(venv) rao@rao-Rev-1-0:~/Desktop/project/hospital-booking-system$ flask run
+
+
+#to start with db
+mysql -u root -p
+create db
+select db
+start working
+
+
+
+#flask connecting to the flask database
+#import flask_mysqldb import MySQL
+
+app = Flask(__name__)
+
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = '1998abc'
+app.config['MYSQL_DB'] = 'myone'
+
+mysql = MySQL(app)
+
+
+
