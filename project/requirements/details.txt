@@ -24,6 +24,8 @@ create db
 select db
 start working
 
+# to dump the database before entering into mysql tpe below command
+mysqldump -u root -p myone > myone.sql;
 
 
 #flask connecting to the flask database

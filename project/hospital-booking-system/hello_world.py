@@ -2,6 +2,7 @@ from flask import Flask
 from flask import request,session,abort
 from flask import render_template
 from flask_mysqldb import MySQL
+import mysql.connector
 #import MySQLdb.cursors
 #import re
 
@@ -25,23 +26,25 @@ mysql = MySQL(app)
 #MAIN API
 @app.route('/hello')
 def hello():
-    return render_template('main.html')
+    return render_template('doctorview.html')
 
 
 #ADD USER DETAILS TO THE DATABASE.............
 @app.route('/print' , methods=['POST'])
 def user_register():
     name = request.form.get('name') 
-    number = request.form.get('number')
     email = request.form.get('email')
     city = request.form.get('city')
     state = request.form.get('state')
     password = request.form.get('password')
     cur = mysql.connection.cursor()
-    cur.execute("INSERT INTO rao12(name,number,email,city,state,password) VALUES(%s,%s,%s,%s,%s,%s)",(name,number,email,city,state,password))
+    cur.execute("INSERT INTO userregister(name,email,city,state,password) VALUES(%s,%s,%s,%s,%s)",(name,email,city,state,password))
     mysql.connection.commit()
     cur.close()
     return render_template('main.html')
+
+
+
 
 
 
@@ -58,35 +61,64 @@ def hospital_register():
     state = request.form.get('state')
     password = request.form.get('password')
     cur = mysql.connection.cursor()
-    cur.execute("INSERT INTO rao13(name,number,email,services,address,city,state,password) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)",(name,number,email,services,address,city,state,password))
+    cur.execute("INSERT INTO doctorstable(name,number,email,services,address,city,state,password) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)",(name,number,email,services,address,city,state,password))
     mysql.connection.commit()
     cur.close()
     return render_template('loginpage.html')
 
 
+
+
+
+
+
+
+
+
+
+
 #validate admin-hospital
 @app.route('/validateuser' , methods=['POST','GET'])
 def validate_user():
-    name = request.form.get('name')
+    email = request.form.get('email')
     password = request.form.get('password')
     cur = mysql.connection.cursor()
-    my1 = "select name from rao13 where name = name"
-    cur.execute(my1)
-    myresult = cur.fetchall()
-    #validate user
-    idno = cur.execute("select id from rao13 where name = name")
-    print(myresult)
-    print(idno)
-    return render_template('homepage.html',idno=idno)
-    
+    # code for validating hospital login
+    return "eeeee"
 
 
-#ADD DOCTORS BY HOSPITAL ADMIN
-@app.route('/adddoctors' ,methods=['POST'])
-def add_doctors():
+
+
+
+
+
+
+#VALIDATE USER
+@app.route('/userlogin',methods=['GET'])
+def userlogin():
+    email = request.form.get('name')
+    password = request.form.get('email')
     
-    doctorid = request.form.get('doctorid')
-    doctorname = request.form.get('doctorname')
-    qualification = request.form.get('qualification')
-    services = request.form.get('services')
-    return render_template('homepage.html') 
+    # code for validating user logins
+    return "gg"
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
