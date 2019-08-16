@@ -57,7 +57,7 @@ DROP TABLE IF EXISTS `hospitalregister`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `hospitalregister` (
   `name` varchar(30) NOT NULL,
-  `number` int(10) NOT NULL,
+  `number` bigint(10) NOT NULL,
   `email` varchar(30) NOT NULL,
   `services` varchar(50) NOT NULL,
   `address` varchar(50) NOT NULL,
@@ -98,7 +98,7 @@ CREATE TABLE `userregister` (
   `doctorid` int(11) DEFAULT NULL,
   PRIMARY KEY (`userid`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,6 +107,7 @@ CREATE TABLE `userregister` (
 
 LOCK TABLES `userregister` WRITE;
 /*!40000 ALTER TABLE `userregister` DISABLE KEYS */;
+INSERT INTO `userregister` VALUES (1,'malyala prateep rao','prateepraomalyala@gmail.com','hanamkonda','Telangana','1111','10:20:00',21,13),(4,'gandhi','gandhi@gmail.com','hyd','Telangana','12345',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `userregister` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -119,4 +120,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-10 19:25:07
+-- Dump completed on 2019-08-17  1:23:50

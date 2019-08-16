@@ -1,90 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>hospital-appointment-booking-system</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<body>
 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+         <li><a href="http://127.0.0.1:5000/redirectuserregister"><span class="glyphicon glyphicon-register"></span>userregister</a></li>
+          <li><a href="http://127.0.0.1:5000/redirecthospitalregister"><span class="glyphicon glyphicon-register"></span>Hospitalregister</a></li>
+	   <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> userLogin</a></li>
+	 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> HospitalLogin</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+    </div>
+    <div class="col-sm-8 text-left"> 
+     </br>
+     </br>
+     </br>  
+      <h1>WELCOME TO HOSPITAL APPOINTMENT BOOKING SYSTEM</h1>
+      </br>
+      </br>
+      <form action="/searchhospital" method="POST">
+	      <fieldset>
+		      <legend>SEARCH FOR HOSPITAL:</legend>
+		      <b> HOSPITAL NAME:</b>
+		      <input type="text" name=name>
+		      <b> CITY:</b>
+      <input type="text" name=city>
+              <input type="submit" name=submit>
+              </fieldset>
+      </form>
+    </br>
+    </br>
+    <form action="/searchhospital" method="POST">
+              <fieldset>
+                      <legend>SEARCH FOR HOSPITAL IN YOUR CITY:</legend>
+                      <b> CITY:</b>
+                      <input type="text" name=city>
+              <input type="submit" name=submit>
+              </fieldset>
+      </form>
+    
+    </div>
+  </div>
+</div>
+</br>
+</br>
+<footer class="container-fluid text-center">
+  <p>THANKS FOR VISITING</p>
+</footer>
 
-<html>
-	<body>
-		<h1 align="center">USER-REGISTRATION</h1> 
-	</body>
-	<form  align="center" action="/print" method="post">
-		<label>
-	        FIRST NAME:
-		<input type="text" name=lastname ></input>
-    		</label>
-		 <label>
-                 LAST NAME:
-                <input type="text" name=lastname ></input>
-                </label>
-                </br> 
-	         <label>
-                GENDER:
-		<input type="text" name=name ></input>
-                </label>
-                </br>
-		<label>
-                MOBILE-NO:
-                <input type="text" name=number ></input>
-                </label>
-		</br><label>
-                EMAIL-ID:
-                <input type="text" name=email ></input>
-                </label>
-                </br><label>
-                CITY:
-                <input type="text" name=city></input>
-                </label>
-		</br><label>
-                STATE:
-                <input type="text" name=state ></input>
-                </label>
-		</br><label>
-		PASSWORD:
-		<input type="password" name=password ></input>
-		</label>
-		</br>
-		<input type="submit" name=submit ></input>        
-	</form>
-        
-
-        <h1 align="center">HOSPITAL-REGISTRATION</h1>
-	<form  align="center" action="/addhospital" method="post">
-                <label>
-                NAME:
-                <input type="text" name=name ></input>
-                </label>
-                </br> <label>
-                CUSTOMER-CARE-NO:
-                <input type="text" name=number ></input>
-                </label>
-                </br><label>
-                CUSTOMER-CARE-EMAIL-ID:
-                <input type="text" name=email ></input>
-		</br> </label>
-		SERVICES:
-                <label>
-	        <input type="text" name=services ></input>
-                </br></label>
-                ADDRESS:
-                <label>
-                <input type="text" name=address ></input>
-                </br></label>
-		<label>
-                CITY:
-                <input type="text" name=city></input>
-                </label>
-                </br><label>
-                STATE:
-                <input type="text" name=state ></input>
-                </label>
-                </br><label>
-                PASSWORD:
-                <input type="password" name=password ></input>
-                </label>
-                </br>
-                <input type="submit" name=submit ></input>
-        </form>
-
-        
-
-
-
+</body>
 </html>
 

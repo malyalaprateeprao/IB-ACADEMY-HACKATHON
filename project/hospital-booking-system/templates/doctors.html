@@ -1,0 +1,39 @@
+<html>
+	<head>
+          <style>
+           table, th, td {
+             border: 1px solid black;
+             border-collapse: collapse;
+            }
+           th, td {
+             padding: 15px;
+            }
+         </style>
+       </head>
+       <body>
+		<form action="/selecttimeslot" method="GET">
+		     <table style="width:100%">
+                        <tr>
+			  <th>SELECT</th>
+                          <th>DOCTOR-NAME</th>
+                          <th>QUALIFICATIONS</th>
+			  <th>SERVICES</th>                                                                                  
+			</tr> 
+		      
+		     {% for result in hlist %}
+		     <tr>
+		     <td><input type="radio" name="id" /></td>
+		     {% for elem in result %}
+                     <td>{{elem}}</td>
+                     {% endfor %}
+                     {% endfor %}
+		     </tr>
+		     </table>
+		  <input type="submit" name="submit">
+		</form>
+	</body>
+</html>
+
+
+
+

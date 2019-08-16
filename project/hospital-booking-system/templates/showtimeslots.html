@@ -8,12 +8,24 @@
 	   
             <h1>MORNING TIME SLOTS</h1>
                         
-             <div class="morning-time-slots">i
+             <div class="morning-time-slots">
 		     {% for todo in mlist %}
-		     <button  class="time-slot"  onClick="selectTimeSlot(this)">{{todo}} </button>
-                     {% endfor %}
+		     <input type="radio"  value={{todo}} name=time />{{todo}}	    
+		     {% endfor %}
 	     </div>
-	     </form> 
+	    <h1>AFTERNOON TIME SLOTS</h1>
+	     <div class="morning-time-slots">
+		     {% for todo in alist %}
+                      <input type="radio"  value={{todo}} name=time />{{todo}}
+		     {% endfor %}
+             </div>
+             </br>
+	     </br>
+	     
+	     <input type="submit">
+	    </form>
+	
+	
 	</body>
 </html
 

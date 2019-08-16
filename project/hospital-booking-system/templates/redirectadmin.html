@@ -1,0 +1,58 @@
+<html>
+	<head>
+         <style>
+           table, th, td {
+             border: 1px solid black;
+             border-collapse: collapse;
+            }
+           th, td {
+             padding: 15px;
+            }
+         </style>
+
+	</head>
+	<body>
+		<h1>WELCOME {{name}}</h1>
+		<table>
+              	<tr>
+		<td>
+		<h1>ADD DOCTOR </h1>
+		<form action="/redirectdoctorviews" method="">
+                        ADDDOCTOR : 
+			<input type="submit" value=add >
+	        </form>
+	        </td>		<td>
+		<h1>doctor login</h1>
+		<form action="/doctorview" method="POST">
+			ENTER DOCTORID:
+			<input type="text" name=doctorid>
+			<input type="submit" value=enter >
+		</form>
+                </td>
+		</tr>
+		</table>
+
+		<h1>SELECT TO DELETE DOCTORS</h1>
+		<form action="deletedoctor" method="">
+	        	<table style="width:100%">
+                        <tr>
+                          <th>SELECT</th>
+                          <th>DOCTOR-NAME</th>
+                          <th>QUALIFICATIONS</th>
+                          <th>SERVICES</th>
+                        </tr>
+
+                     {% for result in hlist %}
+                     <tr>
+                     <td><input type="radio" name="id" /></td>
+                     {% for elem in result %}
+                     <td>{{elem}}</td>
+                     {% endfor %}
+                     {% endfor %}
+                     </tr>
+                     </table>
+	          <input type="submit">
+			</form>
+	
+	</body>
+</html>

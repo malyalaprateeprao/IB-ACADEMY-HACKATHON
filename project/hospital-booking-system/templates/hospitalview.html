@@ -1,0 +1,38 @@
+<html>
+	<head>
+          <style>
+           table, th, td {
+             border: 1px solid black;
+             border-collapse: collapse;
+            }
+           th, td {
+             padding: 15px;
+            }
+         </style>
+       </head>
+       <body>
+		<form action="/doctors" method="POST">
+		     <table style="width:100%">
+                        <tr>
+			  <th>SELECT</th>
+                          <th>HOSPITAL-NAME</th>
+                          <th>CUSTOMER-CARE-N0</th> 
+                          <th>CUSTOMER-CARE-EMAILID</th>
+                          <th>SERVICES</th>
+			  <th>ADDRESS</th>
+			</tr>
+                     <tr> 
+		     <td><input type="radio" name="id" /></td>
+		     {% for todo in hlist %}
+		     <td>{{todo}}</td>
+		     {% endfor %}
+		     </tr>
+		     </table>
+		  <input type="submit" name="submit">
+		</form>
+	</body>
+</html>
+
+
+
+
